@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('User', function ($http, Story) {
+app.factory('User', function ($http, Story, $rootScope) {
   function User (props) {
     angular.extend(this, props);
   }
@@ -45,6 +45,7 @@ app.factory('User', function ($http, Story) {
       verb = 'put';
       url = this.getUrl();
     }
+    this.currentUser = $rootScope.currentUser;
     return $http[verb](url, this)
     .then(function (res) {
       return new User(res.data);

@@ -22,7 +22,7 @@
       </div>
       <span
         ng-if="!isForm"
-        contenteditable
+        contenteditable="{{ !!$root.currentUser.isAdmin }}"
         placeholder="Jean Doe"
         ng-model="user.name"
         ng-model-options="{debounce: 500}"
@@ -62,7 +62,7 @@
       </div>
       <span
         ng-if="!isForm"
-        contenteditable
+        contenteditable="{{ !!$root.currentUser.isAdmin }}"
         placeholder="(555) 555-5555"
         ng-model="user.phone"
         ng-model-options="{debounce: 500}"
